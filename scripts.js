@@ -1,36 +1,42 @@
-/*****Create grid *****/
-for (i = 0; i < 16; i++) {
-    const grid = document.querySelector(".grid");
-    const row = document.createElement("div");
-    grid.appendChild(row);
-    for (j = 0; j < 16; j++) {
-        const column = document.createElement("div");
+const DEFAULT_SIZE = 16;
 
-        column.style.height = "15px";
-        column.style.width = "15px";
-        column.style.border = "solid black 1px";
-        column.classList.add("row");
+window.onload = () => {
+    createGrid(DEFAULT_SIZE);
+};
 
-        grid.appendChild(column);
+/*****Grid creation*****/
+function createGrid(size) {
+    const grid = document.querySelector('.grid');
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    for (let i = 0; i < size * size; i++) {
+        let gridElement = document.createElement('div');
+        gridElement.style.border = 'solid black 2px';
+        gridElement.addEventListener('mouseover', changeColour);
+        grid.appendChild(gridElement);
     };
 };
 
-/*****Random color picker for grid square*****/
-const gridSquare = document.querySelectorAll(".row");
+/*****Random colour picker*****/
+function changeColour(e) {
+    const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    let hexColour = '#';
+    for (i = 0; i < 6; i++) {
+        hexColour += hex[Math.floor(Math.random() * hex.length)];
+    };
+    e.target.style.backgroundColor = hexColour;
+};
 
-gridSquare.forEach(function (item) {
-    item.addEventListener("mouseover", function () {
-        const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
-        let hexColour = "#";
-        for (i = 0; i < 6; i++) {
-            hexColour += hex[Math.floor(Math.random() * hex.length)];
-        };
-        item.style.backgroundColor = hexColour;
+/*****Reset button*****/
+const resetButton = document.querySelector('.reset');
+
+resetButton.addEventListener('click', function () {
+    gridSquare.forEach(function (item) {
+        item.style.backgroundColor = 'white';
     });
+    prompt("Choose the grid size");
 });
-
-
-
 
 
 
