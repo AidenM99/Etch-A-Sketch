@@ -16,7 +16,7 @@ function createGrid(size) {
 
     for (let i = 0; i < size * size; i++) {
         const gridElement = document.createElement('div');
-        gridElement.style.border = 'solid black 2px';
+        gridElement.style.border = "solid 1.5px";
         gridElement.addEventListener('mouseover', changeColour);
         grid.appendChild(gridElement);
     };
@@ -25,7 +25,7 @@ function createGrid(size) {
 /*****Remove grid*****/
 function removeGrid(size) {
     if (size>100 || size <= 0) {
-        return
+        return;
     };
 
     let grid = document.querySelector('.grid');
