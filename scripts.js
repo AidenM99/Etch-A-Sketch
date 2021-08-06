@@ -6,6 +6,10 @@ window.onload = () => {
 
 /*****Grid creation*****/
 function createGrid(size) {
+    if (size>100 || size <= 0) {
+        return alert("Pick a number between 1 and 100");
+    };
+
     let grid = document.querySelector('.grid');
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -18,7 +22,12 @@ function createGrid(size) {
     };
 };
 
+/*****Remove grid*****/
 function removeGrid(size) {
+    if (size>100 || size <= 0) {
+        return
+    };
+
     let grid = document.querySelector('.grid');
     while (grid.firstChild) {
         grid.removeChild(grid.lastChild);
@@ -43,7 +52,7 @@ resetButton.addEventListener('click', function () {
     gridChildren.forEach(function (item) {
         item.style.backgroundColor = 'white';
     });
-    const gridSize = prompt("Choose the grid size");
+    const gridSize = prompt("Choose a new grid size up to 100 squares");
     removeGrid(gridSize);
     createGrid(gridSize);
 });
