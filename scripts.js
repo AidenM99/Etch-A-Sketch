@@ -6,15 +6,22 @@ window.onload = () => {
 
 /*****Grid creation*****/
 function createGrid(size) {
-    const grid = document.querySelector('.grid');
+    let grid = document.querySelector('.grid');
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     for (let i = 0; i < size * size; i++) {
-        let gridElement = document.createElement('div');
+        const gridElement = document.createElement('div');
         gridElement.style.border = 'solid black 2px';
         gridElement.addEventListener('mouseover', changeColour);
         grid.appendChild(gridElement);
+    };
+};
+
+function removeGrid(size) {
+    let grid = document.querySelector('.grid');
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild);
     };
 };
 
@@ -30,12 +37,15 @@ function changeColour(e) {
 
 /*****Reset button*****/
 const resetButton = document.querySelector('.reset');
+const gridChildren = document.querySelector('.grid').childNodes;
 
 resetButton.addEventListener('click', function () {
-    gridSquare.forEach(function (item) {
+    gridChildren.forEach(function (item) {
         item.style.backgroundColor = 'white';
     });
-    prompt("Choose the grid size");
+    const gridSize = prompt("Choose the grid size");
+    removeGrid(gridSize);
+    createGrid(gridSize);
 });
 
 
