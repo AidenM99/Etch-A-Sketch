@@ -1,7 +1,7 @@
 const DEFAULT_SIZE = 16;
-const colour = document.querySelector('.colour');
 const rainbow = document.querySelector('.rainbow');
 const eraser = document.querySelector('.eraser');
+const colourPicker = document.querySelector(".colour-picker");
 const resetButton = document.querySelector('.reset');
 const gridChildren = document.querySelector('.grid').childNodes;
 let brush = 1;
@@ -51,7 +51,7 @@ resetButton.addEventListener('click', function () {
 });
 
 /*****Brush variable declaration*****/
-colour.addEventListener('click', function () {
+colourPicker.addEventListener('click', function () {
     brush = 2;
 });
 rainbow.addEventListener('click', function () {
@@ -61,13 +61,14 @@ eraser.addEventListener('click', function () {
     brush = 4;
 });
 
+
 /*****Change brush mode*****/
 function changeColour(e) {
     if (brush == 1) {
         e.target.style.backgroundColor = 'black';
     };
     if (brush == 2) {
-        e.target.style.backgroundColor = 'red';
+        e.target.style.backgroundColor = colourPicker.value;
     };
     if (brush == 3) {
         const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
@@ -81,6 +82,7 @@ function changeColour(e) {
         e.target.style.backgroundColor = 'white';
     };
 };
+
 
 
 
