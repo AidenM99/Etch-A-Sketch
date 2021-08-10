@@ -14,7 +14,7 @@ body{
 .main {
     display:flex;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
 }
 
 .grid {
@@ -27,6 +27,7 @@ body{
 
 .controls {
     display:flex;
+    flex-wrap: wrap;
     flex-direction: column;
     border-radius: 10px;
     margin-right:50px;
@@ -91,5 +92,30 @@ body{
     border: 0;
 }
 
+@media (max-width:800px) {
+    .main {
+        flex-direction: column;
+    }
+    .grid {
+        order:1;
+        margin-top:0;
+        min-width:400px;
+        height:400px;
+    }
+    .controls {
+        order:2;
+        flex-direction: row;
+        justify-content: center;
+        margin: 30px 0 0 0;
+        width:500px;
+    }
+    .button {
+        width:190px;
+    }
+    .pen-selection-container {
+        margin-left: -15px;
+        margin-right:11px;
+    }
+}
 
 
