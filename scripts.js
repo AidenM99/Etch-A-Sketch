@@ -5,6 +5,8 @@ const penColour = document.querySelector(".pen-colour");
 const resetButton = document.querySelector('.reset');
 const gridChildren = document.querySelector('.grid').childNodes;
 const toggleGrid = document.querySelector('.grid-lines-toggle');
+const backgroundColor = document.querySelector('.background-colour');
+let grid = document.querySelector('.grid');
 let brush = 1;
 
 window.onload = () => {
@@ -17,7 +19,6 @@ function createGrid(size) {
         return alert("Pick a number between 1 and 100");
     };
 
-    let grid = document.querySelector('.grid');
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
@@ -85,12 +86,18 @@ function changeColour(e) {
 };
 
 /*****Toggle grid*****/
-toggleGrid.addEventListener('click', function() {
+toggleGrid.addEventListener('click', function () {
     const gridBorder = document.querySelectorAll('.grid-lines');
     gridBorder.forEach(function (item) {
         item.classList.toggle('no-grid-lines');
     });
 });
+
+/*****Background colour*****/
+backgroundColor.addEventListener('input', function () {
+    grid.style.backgroundColor = backgroundColor.value;
+});
+
 
 
 
