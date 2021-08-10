@@ -84,10 +84,6 @@ body{
     border-color:#BBBBBB;
     }
 
-.active {
-    background-color: #333;
-}
-
 .grid-lines {
     border: solid 1.5px;
 }
