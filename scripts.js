@@ -25,7 +25,7 @@ function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
         const gridElement = document.createElement('div');
         gridElement.addEventListener('mouseover', changeColour);
-        gridElement.classList.add('grid-lines')
+        gridElement.classList.add('grid-lines');
         grid.appendChild(gridElement);
     };
 };
@@ -81,7 +81,7 @@ function changeColour(e) {
         e.target.style.backgroundColor = hexColour;
     };
     if (brush == 4) {
-        e.target.style.backgroundColor = 'white';
+        e.target.style.backgroundColor = grid.style.color;
     };
 };
 
@@ -97,6 +97,7 @@ toggleGrid.addEventListener('click', function () {
 backgroundColor.addEventListener('input', function () {
     grid.style.backgroundColor = backgroundColor.value;
 });
+
 
 
 
