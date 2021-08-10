@@ -1,9 +1,10 @@
 const DEFAULT_SIZE = 16;
 const rainbow = document.querySelector('.rainbow');
 const eraser = document.querySelector('.eraser');
-const colourPicker = document.querySelector(".colour-picker");
+const penColour = document.querySelector(".pen-colour");
 const resetButton = document.querySelector('.reset');
 const gridChildren = document.querySelector('.grid').childNodes;
+const toggleGrid = document.querySelector('.grid-lines-toggle');
 let brush = 1;
 
 window.onload = () => {
@@ -22,8 +23,8 @@ function createGrid(size) {
 
     for (let i = 0; i < size * size; i++) {
         const gridElement = document.createElement('div');
-        gridElement.style.border = "solid 1.5px";
         gridElement.addEventListener('mouseover', changeColour);
+        gridElement.classList.add('grid-lines')
         grid.appendChild(gridElement);
     };
 };
@@ -51,7 +52,7 @@ resetButton.addEventListener('click', function () {
 });
 
 /*****Brush variable declaration*****/
-colourPicker.addEventListener('click', function () {
+penColour.addEventListener('click', function () {
     brush = 2;
 });
 rainbow.addEventListener('click', function () {
@@ -68,7 +69,7 @@ function changeColour(e) {
         e.target.style.backgroundColor = 'black';
     };
     if (brush == 2) {
-        e.target.style.backgroundColor = colourPicker.value;
+        e.target.style.backgroundColor = penColour.value;
     };
     if (brush == 3) {
         const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
@@ -82,6 +83,14 @@ function changeColour(e) {
         e.target.style.backgroundColor = 'white';
     };
 };
+
+/*****Toggle grid*****/
+toggleGrid.addEventListener('click', function() {
+    const gridBorder = document.querySelectorAll('.grid-lines');
+    gridBorder.forEach(function (item) {
+        item.classList.toggle('no-grid-lines');
+    });
+});
 
 
 

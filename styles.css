@@ -33,7 +33,7 @@ body{
     align-items: center;
 }
 
-.colour-picker {
+.pen-colour, .background-colour {
     outline: none;
     border: none;
     background-color: rgba(0,0,0,0);
@@ -42,13 +42,17 @@ body{
     height:40px;
 }
 
-.pen-colour {
+.colour-text {
     position:relative;
     bottom:10px;
     font-weight:400;
     text-transform: uppercase;
     font-size: 14px;
     margin-right:12px;
+}
+
+.colour-text.background {
+    margin-right:2px;
 }
 
 .button {
@@ -78,6 +82,14 @@ body{
     color:#BBBBBB;
     border-color:#BBBBBB;
     }
+
+.grid-lines {
+    border: solid 1.5px;
+}
+
+.no-grid-lines {
+    border: 0;
+}
 
 
 
