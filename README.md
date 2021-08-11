@@ -4,7 +4,7 @@ Live Demo: https://aidenm99.github.io/Etch-A-Sketch/
 
 ### The Project
 
-- The aim of this project was to create an etch-a-sketch
+- The aim of this project was to create an etch-a-sketch.
 
 ### Features
 
