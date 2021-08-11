@@ -1,10 +1,8 @@
-This is a project to create a browser version of an Etch-A-Sketch.
-
-Live Demo: https://aidenm99.github.io/Etch-A-Sketch/
-
 ### The Project
 
 - The aim of this project was to create an etch-a-sketch.
+
+- Live Demo: https://aidenm99.github.io/Etch-A-Sketch/
 
 ### Features
 
