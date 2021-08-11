@@ -24,7 +24,7 @@ function createGrid(size) {
 
     for (let i = 0; i < size * size; i++) {
         const gridElement = document.createElement('div');
-        gridElement.addEventListener('mousedown', changeColour);
+        gridElement.addEventListener('mouseover', changeColour);
         gridElement.classList.add('grid-lines');
         grid.appendChild(gridElement);
     };
